@@ -1,0 +1,45 @@
+html, body {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+#search-results {
+  border: 6px solid black;
+  margin: auto;
+  padding: 12px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.hit-container {
+  width: 250px;
+  background-color: lightgray;
+  text-align: left;
+}
+.hit-info-wrapper {
+  display: inline-block;
+  vertical-align: top;
+}
+.hit-title {
+  font-size: 18px;
+  color: gray;
+}
+
+.hit-description {
+  color: black;
+}
+
+.hit-image {
+  max-width: 50px;
+  margin: 4px;
+}
+
+.hit-phone {
+
+}
+
+.hit-footer {
+  height: 24px;
+  width: 100%;
+  background-color: blue;
+}

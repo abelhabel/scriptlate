@@ -1,0 +1,21 @@
+{
+  "name": "scriptlate",
+  "version": "1.0.0",
+  "description": "Write html templates in javascript",
+  "main": "scriptlate.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "template"
+  ],
+  "author": "abelhabel",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "no-eval-require": "^1.0.1"
+  }
+}
