@@ -3,6 +3,7 @@ var app = express();
 var path = require('path');
 
 var scriptlate = require('../scriptlate');
+var hitContainer = require('./templates/hit-container');
 var hit = require('./templates/hit');
 var hitData = require('./data/hit');
 var helpers = require('./helpers/helpers');
@@ -41,7 +42,8 @@ app.get('/js/templates/:fileName', function(req, res) {
 
 app.get('/text', function(req, res) {
   scriptlate.registerHelpers(helpers);
-  var html = scriptlate(hit, hitData);
+  hitData.hit = hit(hitData, scriptlate.helpers).tags;
+  var html = scriptlate(hitContainer, hitData);
   res.send(html);
 });
 

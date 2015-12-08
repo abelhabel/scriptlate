@@ -3,6 +3,7 @@ var scriptlate = require('scriptlate');
 var searchResults = require('templates/search-results');
 var hitContainer = require('templates/hit-container');
 var hit = require('templates/hit');
+var hitContainer = require('templates/hit-container');
 
 var data = {
   id: 34,
@@ -18,5 +19,5 @@ var helpers = {
   }
 };
 scriptlate.registerHelpers(helpers);
-var hitCompiled = scriptlate(hit, data, helpers);
-console.log(hitCompiled);
+data.hit = hit(data, helpers).tags;
+scriptlate(hitContainer, data);

@@ -16,8 +16,9 @@ scriptlate.helpers = {};
 
 function concatenateTemplate(tags) {
   var str = '', open ='<', content = '', openEnd = '>', close = '</', closeEnd = '>';
-  for(var key in tags) {
-    if(key === 'order' || !tags[key]) continue;
+  tags.order.forEach(function(key) {
+
+    if(key === 'order' || !tags[key]) return;
     str += open + tags[key].tag;
     if(tags[key].id) str += " id='" + tags[key].id + "'";
     if(tags[key].className) str += " class='" + tags[key].className + "'";
@@ -27,12 +28,13 @@ function concatenateTemplate(tags) {
     str += tags[key].innerHTML || '';
 
     if(tags[key].tags) {
+      console.log(tags[key].tags.tags);
       str += concatenateTemplate(tags[key].tags);
     }
 
     str += close + tags[key].tag + closeEnd;
+  });
 
-  }
   return str;
 }
 
@@ -66,7 +68,7 @@ function updateTag(tag, options) {
   }
   if(options.on) {
     for(var event in options.on) {
-      tag.addEventListener(event, controller.on[event], false);
+      tag.addEventListener(event, options.on[event], false);
     }
   }
   return tag;
