@@ -7,7 +7,9 @@ function make(data, helpers){
         id: '',
         data: [{name: 'id', value: data.id}],
         on: {
-          click: [function(e){console.log('function set in template');}, function(e){console.log('and another function set in template');}]
+          click: [function(e){console.log('function set in template');}, function(e){console.log('and another function set in template');}],
+          incorrectlyNamedEvent: [function(){console.log('this should create an invalid event type and not throw an error');}],
+          dblclick: [function(e){console.log('Who is this?', this);}]
         },
         tags: data.hit
       },

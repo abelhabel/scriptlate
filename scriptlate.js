@@ -68,7 +68,9 @@ function updateTag(tag, options) {
   }
   if(options.on) {
     for(var event in options.on) {
-      tag.addEventListener(event, options.on[event], false);
+      for(var i = 0; i < options.on[event].length; i += 1) {
+        tag.addEventListener(event, options.on[event][i], false);
+      }
     }
   }
   return tag;
